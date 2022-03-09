@@ -11,9 +11,10 @@
 		08F06E3227D8BEDE00389042 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F06E3127D8BEDE00389042 /* SceneDelegate.swift */; };
 		08F06E3427D8BEDE00389042 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F06E3327D8BEDE00389042 /* ViewController.swift */; };
 		08F06E3727D8BEDE00389042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F06E3527D8BEDE00389042 /* Main.storyboard */; };
-		08F06E3927D8BEDF00389042 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08F06E3827D8BEDF00389042 /* Assets.xcassets */; };
 		08F06E3C27D8BEDF00389042 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F06E3A27D8BEDF00389042 /* LaunchScreen.storyboard */; };
-		08F06E4827D8C0A400389042 /* Mock_iOS_Avance in Resources */ = {isa = PBXBuildFile; fileRef = 08F06E4727D8C0A400389042 /* Mock_iOS_Avance */; };
+		08F06E4A27D8DAAD00389042 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F06E4927D8DAAD00389042 /* Landmark.swift */; };
+		08F06E4F27D8E3C200389042 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08F06E4D27D8E3C100389042 /* Assets.xcassets */; };
+		08F06E5027D8E3C200389042 /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F06E4E27D8E3C200389042 /* landmarkData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +23,11 @@
 		08F06E3127D8BEDE00389042 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		08F06E3327D8BEDE00389042 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		08F06E3627D8BEDE00389042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		08F06E3827D8BEDF00389042 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08F06E3B27D8BEDF00389042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08F06E3D27D8BEDF00389042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		08F06E4727D8C0A400389042 /* Mock_iOS_Avance */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Mock_iOS_Avance; path = ../../Mock_iOS_Avance; sourceTree = "<group>"; };
+		08F06E4927D8DAAD00389042 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		08F06E4D27D8E3C100389042 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		08F06E4E27D8E3C200389042 /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,7 @@
 				08F06E4427D8BFB600389042 /* Controllers */,
 				08F06E4327D8BF9100389042 /* Models */,
 				08F06E3D27D8BEDF00389042 /* Info.plist */,
-				08F06E4727D8C0A400389042 /* Mock_iOS_Avance */,
+				08F06E4E27D8E3C200389042 /* landmarkData.json */,
 			);
 			path = LandmarkCollectionApp;
 			sourceTree = "<group>";
@@ -71,6 +73,7 @@
 		08F06E4327D8BF9100389042 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				08F06E4927D8DAAD00389042 /* Landmark.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -88,7 +91,7 @@
 			children = (
 				08F06E2F27D8BEDE00389042 /* AppDelegate.swift */,
 				08F06E3127D8BEDE00389042 /* SceneDelegate.swift */,
-				08F06E3827D8BEDF00389042 /* Assets.xcassets */,
+				08F06E4D27D8E3C100389042 /* Assets.xcassets */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -160,9 +163,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08F06E4827D8C0A400389042 /* Mock_iOS_Avance in Resources */,
 				08F06E3C27D8BEDF00389042 /* LaunchScreen.storyboard in Resources */,
-				08F06E3927D8BEDF00389042 /* Assets.xcassets in Resources */,
+				08F06E4F27D8E3C200389042 /* Assets.xcassets in Resources */,
+				08F06E5027D8E3C200389042 /* landmarkData.json in Resources */,
 				08F06E3727D8BEDE00389042 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +180,7 @@
 				08F06E3427D8BEDE00389042 /* ViewController.swift in Sources */,
 				08F06E3027D8BEDE00389042 /* AppDelegate.swift in Sources */,
 				08F06E3227D8BEDE00389042 /* SceneDelegate.swift in Sources */,
+				08F06E4A27D8DAAD00389042 /* Landmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
