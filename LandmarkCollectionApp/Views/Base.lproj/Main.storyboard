@@ -23,13 +23,58 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="zpH-gn-wlN">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="featuredLandmarkCell" id="zpH-gn-wlN" customClass="featuredLandmarkCell" customModule="LandmarkCollectionApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jJ1-Ue-UJ1">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yrd-e2-MGg">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Yrd-e2-MGg" firstAttribute="leading" secondItem="jJ1-Ue-UJ1" secondAttribute="leading" id="6SP-nY-Ugv"/>
+                                        <constraint firstAttribute="trailing" secondItem="Yrd-e2-MGg" secondAttribute="trailing" id="Yib-xm-Jki"/>
+                                        <constraint firstAttribute="bottom" secondItem="Yrd-e2-MGg" secondAttribute="bottom" id="r8K-jq-UfW"/>
+                                        <constraint firstItem="Yrd-e2-MGg" firstAttribute="top" secondItem="jJ1-Ue-UJ1" secondAttribute="top" id="yEE-MK-lrE"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="imageLandmark" destination="Yrd-e2-MGg" id="vNK-zO-g4H"/>
+                                </connections>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryLandmarkCell" id="hn2-EZ-z2P" customClass="categoryLandmarkCell" customModule="LandmarkCollectionApp" customModuleProvider="target">
+                                <rect key="frame" x="143" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DdY-cx-tuu">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5H-9o-DFW">
+                                            <rect key="frame" x="43" y="107" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TZZ-YP-FBT">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="99"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="TZZ-YP-FBT" firstAttribute="top" secondItem="DdY-cx-tuu" secondAttribute="top" id="5Y7-h3-L6Z"/>
+                                        <constraint firstAttribute="trailing" secondItem="TZZ-YP-FBT" secondAttribute="trailing" id="G3h-mH-vxv"/>
+                                        <constraint firstItem="TZZ-YP-FBT" firstAttribute="leading" secondItem="DdY-cx-tuu" secondAttribute="leading" id="YM6-3y-sL8"/>
+                                        <constraint firstItem="g5H-9o-DFW" firstAttribute="centerX" secondItem="DdY-cx-tuu" secondAttribute="centerX" id="kMo-ad-pF9"/>
+                                        <constraint firstItem="g5H-9o-DFW" firstAttribute="top" secondItem="TZZ-YP-FBT" secondAttribute="bottom" constant="8" id="ooR-us-tt1"/>
+                                        <constraint firstAttribute="bottom" secondItem="g5H-9o-DFW" secondAttribute="bottom" id="puE-EG-TSA"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="imageLandmark" destination="TZZ-YP-FBT" id="Y8U-Sf-a96"/>
+                                    <outlet property="name" destination="g5H-9o-DFW" id="FJW-N9-M7K"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
