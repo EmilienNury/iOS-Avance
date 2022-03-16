@@ -23,7 +23,7 @@ class ViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Landmarks"
         let file = Bundle.main.url(forResource: "landmarkData", withExtension: "json")!
         
         do {
@@ -38,6 +38,26 @@ class ViewController: UICollectionViewController {
         configureDataSource()
         collectionView.collectionViewLayout = createLayout()
         loadInitialState()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showDetails":
+            let indexPath = collectionView.indexPath(for: sender as! UICollectionViewCell)
+            guard let item = diffableDataSource.itemIdentifier(for: indexPath!) else {
+                return
+            }
+            
+            switch item {
+            case .featuredLandmark(let featuredLandmark):
+                (segue.destination as! LandmarkDetailsViewController).landmark = featuredLandmark
+            case .categoryLandmark(let categoryLandmark):
+                (segue.destination as! LandmarkDetailsViewController).landmark = categoryLandmark
+            }
+            
+        default:
+            fatalError()
+        }
     }
 
     private func configureDataSource() {

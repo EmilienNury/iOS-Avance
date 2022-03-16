@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0832C37327E1F691003B4FB0 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0832C37227E1F691003B4FB0 /* CustomHeaderView.swift */; };
+		0832C37527E222BE003B4FB0 /* LandmarkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0832C37427E222BE003B4FB0 /* LandmarkDetailsViewController.swift */; };
 		08F06E3027D8BEDE00389042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F06E2F27D8BEDE00389042 /* AppDelegate.swift */; };
 		08F06E3227D8BEDE00389042 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F06E3127D8BEDE00389042 /* SceneDelegate.swift */; };
 		08F06E3427D8BEDE00389042 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F06E3327D8BEDE00389042 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0832C37227E1F691003B4FB0 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
+		0832C37427E222BE003B4FB0 /* LandmarkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetailsViewController.swift; sourceTree = "<group>"; };
 		08F06E2C27D8BEDE00389042 /* LandmarkCollectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandmarkCollectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08F06E2F27D8BEDE00389042 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08F06E3127D8BEDE00389042 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				08F06E3327D8BEDE00389042 /* ViewController.swift */,
+				0832C37427E222BE003B4FB0 /* LandmarkDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				08F06E3027D8BEDE00389042 /* AppDelegate.swift in Sources */,
 				08F06E3227D8BEDE00389042 /* SceneDelegate.swift in Sources */,
 				08F06E4A27D8DAAD00389042 /* Landmark.swift in Sources */,
+				0832C37527E222BE003B4FB0 /* LandmarkDetailsViewController.swift in Sources */,
 				08F06E5327D8F0C300389042 /* featuredLandmarkCell.swift in Sources */,
 				08F06E5527D8F0F900389042 /* categoryLandmarkCell.swift in Sources */,
 			);
