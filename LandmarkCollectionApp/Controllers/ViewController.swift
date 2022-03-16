@@ -138,23 +138,42 @@ class ViewController: UICollectionViewController {
             
             switch section {
             case .featured:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                      heightDimension: .fractionalHeight(1))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .absolute(250))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                             subitem: item,
-                                                             count: 1)
-                
-                let section = NSCollectionLayoutSection(group: group)
-                section.interGroupSpacing = 1
-                section.contentInsets = .init(top: 8, leading: 0, bottom: 32, trailing: 0)
-                section.orthogonalScrollingBehavior = .groupPaging
-    
-                return section
-                
+                if (NSCollectionLayoutEnvironment.traitCollection.horizontalSizeClass == .regular) {
+                    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                          heightDimension: .fractionalHeight(1))
+                    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                    item.contentInsets = .init(top: 0, leading: 8, bottom: 0, trailing: 8)
+                    
+                    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                           heightDimension: .absolute(250))
+                    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                                 subitem: item,
+                                                                 count: 3)
+                    
+                    let section = NSCollectionLayoutSection(group: group)
+                    section.contentInsets = .init(top: 8, leading: 16, bottom: 32, trailing: 16)
+                    section.orthogonalScrollingBehavior = .groupPaging
+        
+                    return section
+                } else {
+                    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                          heightDimension: .fractionalHeight(1))
+                    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                    
+                    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                           heightDimension: .absolute(250))
+                    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                                   subitem: item,
+                                                                   count: 1)
+                    
+                    let section = NSCollectionLayoutSection(group: group)
+                    section.interGroupSpacing = 1
+                    section.contentInsets = .init(top: 8, leading: 0, bottom: 32, trailing: 0)
+                    section.orthogonalScrollingBehavior = .groupPaging
+                    
+                    return section
+                }
                 
             case .category:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
