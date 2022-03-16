@@ -8,6 +8,7 @@
 import UIKit
 
 class featuredLandmarkCell: UICollectionViewCell {
+    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var imageLandmark: UIImageView!
     
 }

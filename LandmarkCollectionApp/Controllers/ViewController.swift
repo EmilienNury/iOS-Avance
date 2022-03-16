@@ -41,20 +41,41 @@ class ViewController: UICollectionViewController {
     }
 
     private func configureDataSource() {
-        diffableDataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+        diffableDataSource = UICollectionViewDiffableDataSource(collectionView: collectionView,
+                                                                cellProvider: { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
             case .featuredLandmark(let featuredLandmark):
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featuredLandmarkCell", for: indexPath) as! featuredLandmarkCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featuredLandmarkCell",
+                                                              for: indexPath) as! featuredLandmarkCell
                 cell.imageLandmark.image = featuredLandmark.image
+                cell.name.text = featuredLandmark.name
                 return cell
                 
             case .categoryLandmark(let categoryLandmark):
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryLandmarkCell", for: indexPath) as! categoryLandmarkCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryLandmarkCell",
+                                                              for: indexPath) as! categoryLandmarkCell
                 cell.imageLandmark.image = categoryLandmark.image
+                cell.imageLandmark.layer.cornerRadius = 8
                 cell.name.text = categoryLandmark.name
                 return cell
             }
         })
+        diffableDataSource.supplementaryViewProvider = { [self] collectionView, elementKind, indexPath in
+            guard let item = diffableDataSource.itemIdentifier(for: indexPath) else {
+                return nil
+            }
+            
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                         withReuseIdentifier: "CustomHeaderView",
+                                                                         for: indexPath) as! CustomHeaderView
+            switch item {
+            case .categoryLandmark(let categoryLandmark):
+                header.label.text = categoryLandmark.category.rawValue
+            default:
+                break
+            }
+            return header
+        }
     }
     
     private func createSnapshot() -> NSDiffableDataSourceSnapshot<Section, Item> {
@@ -108,7 +129,7 @@ class ViewController: UICollectionViewController {
                                                              count: 1)
                 
                 let section = NSCollectionLayoutSection(group: group)
-                section.interGroupSpacing = 8
+                section.interGroupSpacing = 1
                 section.contentInsets = .init(top: 8, leading: 0, bottom: 32, trailing: 0)
                 section.orthogonalScrollingBehavior = .groupPaging
     
@@ -121,15 +142,22 @@ class ViewController: UICollectionViewController {
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(128),
-                                                       heightDimension: .absolute(128))
+                                                       heightDimension: .absolute(156))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                              subitem: item,
                                                              count: 1)
                 
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                        heightDimension: .absolute(50))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+                                                                         elementKind: UICollectionView.elementKindSectionHeader,
+                                                                         alignment: .top)
+            
                 let section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 8
                 section.contentInsets = .init(top: 8, leading: 8, bottom: 64, trailing: 8)
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                section.boundarySupplementaryItems = [header]
                 
                 return section
                 
